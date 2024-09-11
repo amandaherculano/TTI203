@@ -26,6 +26,7 @@ class AppState extends State<App>{ //estado da aplicacao
     },
     child: Icon(Icons.add), //texto tamanho padrao
     ),
+    body:  Text('$numeroImagens')
   ),
   );
     runApp(app);
