@@ -3,7 +3,7 @@ import 'src/app.dart';
 
 
 void main (){
-  var app = 
+  var app =  App();
   runApp(app);
 
 
