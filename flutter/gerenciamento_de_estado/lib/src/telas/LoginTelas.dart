@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
 import '../blocs/blocs.dart';
+import '../blocs/provider.dart'
 
 class LoginTelas extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    //context permite que suba na arvores, de baixo para cima
+    final bloc = Provider.of(context)
     return Container(
       margin: EdgeInsets.all(20.0),
       child: Column(
         children: [
-          Text ("Filho1"),
-          Text ("Filho2"),
-          emailField(),
-          passwordField(),
+          // Text ("Filho1"),
+          // Text ("Filho2"),
+          emailField(bloc),
+          passwordField(bloc),
+          Container(
+            margin: EdgeInsets.only(top: 12.0),
+             child: Row(
+              children: [
+                 Expanded(
+                    child: submitButton(
+                
+            ),
+          )
+        ],
+      )
           submitButton()
         ],
         ),
     );
   }
-Widget emailField(){
+Widget emailField(Bloc bloc){
 
   return StreamBuilder(
-    stream: bloc.email, //em emial esta implicito o transform
+    stream: bloc.email, //em email esta implicito o transform
     builder: (context, snapshot){
       return TextField(
         onChanged: (newValue){
@@ -47,7 +61,7 @@ Widget emailField(){
   );
   }
   //escrever novo método que produz um campo próprio para senha
-  Widget passwordField(){
+  Widget passwordField(Bloc bloc){
 
     return StreamBuilder(
       stream: bloc.password, 
@@ -67,23 +81,20 @@ Widget emailField(){
     );
   }
   //escrever novo método que produz um botão
-  Widget submitButton(){
-    return Container(
-      margin: EdgeInsets.only(top: 12.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: ElevatedButton(
-                onPressed: (){}, 
-                child: Text('Login')
-            ),
-          )
-        ],
-      )
-      
-      
-      
-    );
-  }
+  Widget submitButton(Bolc bloc){
+    return StreamBuilder(
+      stream: bloc.emailAndPasswordOK,
+      builder: (context, AsyncSnapshot <bool> snapshot){
+        return ElevatedButton(
+          onPressed(){},
+          child: Text('Ok')
+        );
+      }
+    }; //single cast: só produz um 
+  );// devemos: combinar stream para dar paa dart resolver 
 }
+}
+
+
+
 
