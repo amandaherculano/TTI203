@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='{% static 'css/style.css' %}'>
+    <title>Primeira Aplicacao Django</title>
+</head>
+<body>
+    <h1>Estamos no arquivo index.html</h1>
+    <p>{ (minhas_primeira_variavel) }</p>
+    <button 
+        onclick="hey()"> Falar Hey</button>
+    <img scr='{% static 'images/gato.jpg' %}' alt='Imagem gato'>
+    <script src='{% static 'js/script.js' %}'></script>
+</body>
+</html>

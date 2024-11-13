@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from primeira_aplicacao import views
+from primeira_aplicacao.views import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    # pode mudar o nome, nao precisa ser igual, só ira mudar 8000/abc
+    path('primeira_aplicacao/', include('primeira_aplicacao.urls')) 
+    # primeira aplicacao vai ser incluida na url
+    #  passa por primeira aplicacao antes!! 
 ]

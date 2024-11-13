@@ -4,9 +4,11 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-# hirosnfiofd
 # nao especificou: implicito get
 def index(request):
-    return HttpResponse("Hello, Django!")
+    # return HttpResponse("Hello, Django!")
 
-    
+    variaveis = {
+        'minha_primeira_variavel' : 'Hell, variaveis'
+    }
+    return render(request, 'primeira_aplicacao/index.html', context=variaveis)
